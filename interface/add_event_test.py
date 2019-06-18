@@ -10,7 +10,7 @@ class AddEventTest(unittest.TestCase):
         self.base_url = "http://127.0.0.1:8000/api/add_event/"
 
     def tearDown(self):
-        pass
+        print(self.result)
 
     def test_add_event_all_null(self):
         payload = {'eid':'','name':'','limit':'','address':"",'start_time':''}
@@ -45,7 +45,7 @@ class AddEventTest(unittest.TestCase):
 
     def test_add_event_success(self):
         ''' 添加成功 '''
-        payload = {'eid': 11, 'name': '一加4手机发布会', 'limit': 2000, 'address': "深圳宝体", 'start_time': '2017-05-10 12:00:00'}
+        payload = {'eid': 11, 'name': '一加5手机发布会', 'limit': 2000, 'address': "深圳宝体", 'start_time': '2017-05-10 12:00:00'}
         r = requests.post(self.base_url, data=payload)
         self.result = r.json()
         self.assertEqual(self.result['status'], 200)
